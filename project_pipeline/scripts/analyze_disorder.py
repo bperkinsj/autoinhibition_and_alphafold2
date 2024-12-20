@@ -8,7 +8,7 @@ compared against itself, and then both regions compared to each other.
 import pandas as pd
 import main
 
-df = pd.read_csv('./data/classified_files_3.tsv', sep='\t').astype('object')
+df = pd.read_csv('./data/proteins.tsv', sep='\t').astype('object')
 af_path = './data/input/Alphafold_cif/'
 affix = 'F-'
 suffix = '-F1-predicted_aligned_error_v3.json'
@@ -23,15 +23,6 @@ suffix = '-F1-predicted_aligned_error_v3.json'
 df_disorder_1 = main.calculate_disorder(df)
 
 
-# Calculate percent of structures within 2.5A of closed conformation
-df_disorder_1['2_comp'] = pd.to_numeric(df_disorder_1['2_comp'])
-df_closed_2 = df_disorder_1[(df_disorder_1['conformation'] == 'Closed') & (df_disorder_1['2_comp'] <= 2.5)]
-percent_closed = len(df_closed_2)/len(df_disorder_1)*100
-print(percent_closed)
-
-df_open = df_disorder_1[(df_disorder_1['conformation'] == 'Open') & (df_disorder_1['2_comp'] > 2.5)]
-percent_open = len(df_open)/len(df_disorder_1)*100
-print(percent_open)
 
 # Separate ARs that are mainly structured from disordered ones
 df_disorder_1['percent_disorder_1'] = pd.to_numeric(df_disorder_1['percent_disorder_1'])

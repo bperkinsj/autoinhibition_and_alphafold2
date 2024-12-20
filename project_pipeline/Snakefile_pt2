@@ -39,9 +39,11 @@ rule add_md_clusters: # Add cluster information
 
 rule plddt: # Calculate average pLDDT for whole structure and each domain for AlphaFold2 and ColabFold structures.
     input:
+        'data/classified_files.tsv',
+        'data/md_rmsds.tsv',
+        'data/single_domain_full-depth.tsv',
         'data/ai_pdb_clusters.tsv',
         'data/md_pdb_clusters.tsv',
-        'data/single_domain_full-depth.tsv',
         'data/input/Alphafold_cif/',
         'data/input/Alphafold_multi_domain/',
         'data/input/Alphafold_single_domain/',
@@ -56,7 +58,7 @@ rule plddt: # Calculate average pLDDT for whole structure and each domain for Al
     script:
         'scripts/plddt.py'
 
-rule ai_compare: # Compare two-state autoinhibited AlphaFold2 structures with ColabFold structures
+rule ai_compare: # Compare full-depth autoinhibited AlphaFold2 structures with ColabFold structures
     input:
         'data/ai_pdb_clusters.tsv',
         'data/input/Alphafold_cif/',
@@ -121,7 +123,7 @@ rule md_pdb_cluster_trim:
     script:
         'scripts/trim_cf_pdb.py'
 
-rule compare_ai_pdb_clusters: # Compare two-state autoinhibited Colabfold structures with PDB structures.
+rule compare_ai_pdb_clusters: # Compare autoinhibited Colabfold structures with PDB structures.
     input:
         'data/input/RCSB_cif_trim/',
         'data/input/Colabfold_pdb_trim/',

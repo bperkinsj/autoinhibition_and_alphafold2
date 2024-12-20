@@ -671,10 +671,9 @@ def pae_from_json(path, fn):
     '''
 
     try:
-        f = open(path + fn)
+        f = open(os.path.join(path, fn))
         data = json.load(f)
-        data = data[0]
-        pae = data['predicted_aligned_error']
+        pae = data[0]['predicted_aligned_error']
         array = np.array(pae)
     except FileNotFoundError:
         print(f'File {fn} not found')

@@ -726,7 +726,7 @@ def mean_plddt_single_domain(df, path):
     df.drop(columns=['region search'], inplace=True)
     return df
 
-def mean_paes(df, path, affix, suffix):
+def mean_paes(df, path, affix, suffix, cluster=False):
     # Calculate the average pae for region 1 to region 1, region 2 to region 2, and region 1 to region 2
 
     print('Calculating mean pae...')
@@ -734,6 +734,9 @@ def mean_paes(df, path, affix, suffix):
     for i in range(len(df)):
         uniprot = df.loc[i, 'uniprot']
         fn = affix + uniprot + suffix
+        if cluster:
+            cluster = df.loc[i, 'cluster']
+            fn = uniprot + '_' + cluster + '_' + suffix
         region_1 = df.loc[i, 'region_1']
         region_2 = df.loc[i, 'region_2']
 
@@ -745,7 +748,13 @@ def mean_paes(df, path, affix, suffix):
         reg2_array = np.array(reg2_bounds)
 
         # Read in json file
-        prot_array = utils.pae_from_json(path, fn)
+        if cluster:
+            subpath = join(path, uniprot)
+            prot_array = utils.pae_from_json(subpath, fn)
+
+        else:
+            print(fn)
+            prot_array = utils.pae_from_json(path, fn)
 
         '''
         We want means of reg1 compared against reg1, reg1 compared against reg2, and reg2 compared against reg2.

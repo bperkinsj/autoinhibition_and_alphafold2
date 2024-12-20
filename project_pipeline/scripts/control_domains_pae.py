@@ -22,7 +22,7 @@ df_mean_pae = main.mean_pae_single_domain(df, af_path)
 df_mean_pae.to_csv('./data/single_domain_pae.tsv', sep='\t', index=False)
 
 # Read in the file for the multi domain proteins
-df = pd.read_csv('./data/multi_domain_regions.tsv', sep='\t').astype('object')
+df = pd.read_csv('./data/multi_domain.tsv', sep='\t').astype('object')
 
 # Define file path for Alphafold predicted aligned error files
 af_path = './data/input/Alphafold_multi_domain/'
