@@ -13,6 +13,10 @@ The first step of the pipeline is the ```Snakefile``` in the ```project_pipeline
 | ---     | ---      | ---      | 
 | P28583  | 15-139   | 211-412  | 
 
-where "uniprot" is the UniProt ID, "region_1" is the sequence range of the inhibitory module, and "region_2" is the sequence range of the functional domain. It also requires all of the AlphaFold-predicted files to be placed in ```data/Alphafold_cif```.
+where "uniprot" is the UniProt ID, "region_1" is the sequence range of the inhibitory module, and "region_2" is the sequence range of the functional domain. It also requires all of the AlphaFold-predicted files to be placed in ```data/Alphafold_cif```. Once those are provided, the pipeline can be run as per normal Snakemake:
+
+```
+$ snakemake -s Snakefile
+```
 
 The final output will be to the file ```rmsds.tsv```.
