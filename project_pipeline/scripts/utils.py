@@ -739,7 +739,7 @@ def add_AF_filename(df, fp):
     filenames = os.listdir(fp)
 
     # Keep only the .cif files
-    filenames = [f for f in filenames if f.endswith('.cif') or (f.contains('rank_001') and f.endswith('.pdb'))]
+    filenames = [f for f in filenames if f.endswith('.cif') or ('rank_001' in f and f.endswith('.pdb'))]
 
     # Determine which files are in the dataframe
     df_proteins = df['uniprot'].tolist()
