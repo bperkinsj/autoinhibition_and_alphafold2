@@ -131,3 +131,5 @@ For Espritz, I used the Disprot prediction type and the Best Sw decision thresho
 
 Uniprot access numbesr to add:
 Q922S4 (PDE2A_MOUSE) (for comparison to O76074)
+
+Trimmed MSAs were done using Colabfold notebook v1.5.5.
