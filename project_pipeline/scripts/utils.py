@@ -673,7 +673,7 @@ def pae_from_json(path, fn):
     try:
         f = open(os.path.join(path, fn))
         data = json.load(f)
-        pae = data[0]['predicted_aligned_error']
+        pae = data['predicted_aligned_error']
         array = np.array(pae)
     except FileNotFoundError:
         print(f'File {fn} not found')
@@ -782,9 +782,7 @@ def select_regions(gt_fn, pred_fn, region_1, region_2):
             resi_range = regions[key]
             cmd.select(f'{obj}_{key}', f'{obj} and resi {resi_range}')
 
-def alter_chain(gt_fn, pred_fn, chain="B"):
-    # With the native and pred regions selected, change
-    # the chain to B for native_1 and pred_1.
+def alter_chain(gt_fn, pred_fn):
 
     # First set the native and pred chains to C
     cmd.alter('native', 'chain="C"')
@@ -845,3 +843,17 @@ def get_pdb_struct_dict(name, fn, path):
     structure = parser.get_structure(name, full_path)
 
     return structure
+
+def adjust_trimmed_bounds(reg1, reg2):
+    '''
+    This function takes in two numpy arrays of region boundaries in a sequence 
+    (either [1, 4] or [[1, 5], [8, 12], ...]), finds the minimum from both
+    lists, and subtracts the minimum boundary from every value to adjust for 
+    trimmed sequences.'''
+
+    min_bound = min(reg1.min(), reg2.min())
+
+    result1 = np.subtract(reg1, min_bound - 1)
+    result2 = np.subtract(reg2, min_bound - 1)
+
+    return result1, result2

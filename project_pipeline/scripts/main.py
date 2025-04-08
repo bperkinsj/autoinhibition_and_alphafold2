@@ -1113,8 +1113,9 @@ def get_cf_pdb_rmsds(df, gt_path, pred_path, complex_path):
 def split_chains(df, gt_in_path, pred_in_path, gt_out_path, pred_out_path, cluster=False,
                 pred_only=False):
     '''
-    Split the main chain of each file into two chains. The original chain
-    is chain A, so we just re-assign the autoinhibitory region to chain B.
+    Split the main chain of each file into three chains for use with DockQ. 
+    The original chain becomes chain C, the inhibitory module becomes chain B, 
+    and the functional domain becomes chain A.
     Save as new files.
     '''
 
@@ -1139,7 +1140,6 @@ def split_chains(df, gt_in_path, pred_in_path, gt_out_path, pred_out_path, clust
             in_fn = f'{uniprot}/{pdb}.cif'
             out_fn = f'{uniprot}_{pdb}.pdb'
             print(f'Doing {uniprot}/{pdb}.cif!')
-        chain = "C" # chain we would like to change region autoinihibitory region to
 
         # Define filepaths
         if pred_only:
@@ -1157,4 +1157,4 @@ def split_chains(df, gt_in_path, pred_in_path, gt_out_path, pred_out_path, clust
         utils.select_regions(gt_fn_in, pred_fn_in, region_1, region_2)
 
         # Split the chains
-        utils.alter_chain(gt_fn_out, pred_fn_out, chain)
+        utils.alter_chain(gt_fn_out, pred_fn_out)
