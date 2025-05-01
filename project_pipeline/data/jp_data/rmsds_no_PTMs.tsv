@@ -1,0 +1,10 @@
+uniprot	pdb	complex_rmsd	region_1	region_2	gt_fn	1_aligned	1_comp	2_aligned	2_comp
+p14921	1gvj.cif_fold_p14921_model_1.cif	4.753	280-330	335-415	1gvj.cif_fold_p14921_model_1.cif	6.358	7.047	1.066	9.515
+p62826	1rrp.cif_fold_p62826_model_2.cif	19.102	179-216	10-169	1rrp.cif_fold_p62826_model_2.cif	7.997	29.39	4.834	44.07
+p62826	2n1b.cif_fold_p62826_model_4.cif	3.579	179-216	10-169	2n1b.cif_fold_p62826_model_4.cif	3.863	2.242	1.507	5.03
+p13864	3pt6.cif_fold_p13864_model_4.cif	7.56	649-695	1142-1601	3pt6.cif_fold_p13864_model_4.cif	2.835	42.725	1.308	33.698
+p35609	4d1e.cif_fold_p35609_model_1.cif	113.948	259-307	753-824	4d1e.cif_fold_p35609_model_1.cif	3.552	228.03	4.185	221.998
+q9jk66	4k7d.cif_fold_q9jk66_model_1.cif	10.85	141-225,378-410	226-377,410-465	4k7d.cif_fold_q9jk66_model_1.cif	15.515	3.761	2.066	13.573
+q09472	5xzc.cif_fold_q09472_model_1.cif	28.992	1520-1581	1287-1663	5xzc.cif_fold_q09472_model_1.cif	13.777	37.031	14.299	35.245
+q96rd7	6m02.cif_fold_q96rd7_model_4.cif	11.112	412-426	1-287	6m02.cif_fold_q96rd7_model_4.cif	5.573	44.389	11.423	22.288
+q9jk66	7us1.cif_fold_q9jk66_model_1.cif	8.966	141-225,378-410	226-377,410-465	7us1.cif_fold_q9jk66_model_1.cif	1.928	30.366	5.101	10.706

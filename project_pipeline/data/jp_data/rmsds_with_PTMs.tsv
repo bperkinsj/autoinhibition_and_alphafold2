@@ -1,0 +1,7 @@
+uniprot	pdb	complex_rmsd	region_1	region_2	gt_fn	1_aligned	1_comp	2_aligned	2_comp
+p62826	1rrp.cif_fold_p62826_1rrp_model_1.cif	14.254	179-216	10-169	1rrp.cif_fold_p62826_1rrp_model_1.cif	2.401	3.406	2.013	3.032
+p13864	3pt6.cif_fold_p13864_3pt6_model_1.cif	7.621	649-695	1142-1601	3pt6.cif_fold_p13864_3pt6_model_1.cif	2.952	42.408	1.378	33.701
+p35609	4d1e.cif_fold_p35609_4d1e_model_0.cif	113.811	259-307	753-824	4d1e.cif_fold_p35609_4d1e_model_0.cif	3.578	226.771	4.462	221.651
+q9jk66	4k7d.cif_fold_q9jk66_4k7d_model_2.cif	10.967	141-225,378-410	226-377,410-465	4k7d.cif_fold_q9jk66_4k7d_model_2.cif	16.012	6.597	2.591	13.637
+q09472	5xzc.cif_fold_q09472_5xzc_model_1.cif	28.287	1520-1581	1287-1663	5xzc.cif_fold_q09472_5xzc_model_1.cif	13.502	28.181	12.476	30.736
+q9jk66	7us1.cif_fold_q9jk66_7us1_model_1.cif	1.743	141-225,378-410	226-377,410-465	7us1.cif_fold_q9jk66_7us1_model_1.cif	1.643	29.936	1.131	2.569
